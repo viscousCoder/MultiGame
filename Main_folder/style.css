@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: azure;
+}
+.mainHeading {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+.parentBox {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  column-gap: 10;
+}
+
+.box {
+  height: 30rem;
+  width: 20rem;
+  border: 10px solid black;
+  box-shadow: 10px 10px 5px red;
+  display: flex;
+  flex-direction: column;
+}
+
+.box:hover {
+  transform: scale(1.2);
+}
+.photo {
+  background-color: green;
+  width: 100%;
+  height: 25rem;
+}
+.content {
+  /* background-color: orange; */
+  width: 100;
+  padding: 10px;
+  /* justify-content: center; */
+}
+
+.guessImg {
+  height: 25rem;
+  width: 20rem;
+}
+.subHeading {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
