@@ -11,6 +11,7 @@
 <body>
     <main>
         <div class="container">
+            <h1>Tic Tac Toe</h1>
             <div class="row">
                 <div onclick="handleClick(this)" id="0" class="col"></div>
                 <div onclick="handleClick(this)" id="1" class="col"></div>
@@ -26,6 +27,9 @@
                 <div onclick="handleClick(this)" id="7" class="col"></div>
                 <div onclick="handleClick(this)" id="8" class="col"></div>
             </div>
+            <div class="turn-indicator">X's turn</div>
+            <div class="winner">X winner</div>
+            <button id="restart-btn">Restart</button>
         </div>
     </main>
     <script src="script.js"></script>

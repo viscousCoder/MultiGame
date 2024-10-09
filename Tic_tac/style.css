@@ -1,7 +1,16 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
 .col {
   height: 80px;
   width: 80px;
-  border: 1px solid black;
+  border: 2px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,4 +24,23 @@
 }
 .row {
   display: flex;
+  gap: 1px;
+}
+.col:hover {
+  background-color: #e0e0e0;
+}
+.turn-indicator {
+  margin: 17px;
+  font-size: 2rem;
+}
+.hidden {
+  display: none;
+}
+.winner {
+  margin: 17px;
+  font-size: 2rem;
+}
+#restart-btn {
+  padding: 10px;
+  font-size: 1.5rem;
 }

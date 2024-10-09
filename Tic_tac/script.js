@@ -32,9 +32,15 @@
 //   currentPlayer = currentPlayer === "X" ? "0" : "X";
 // }
 
+let turnIndicator = document.querySelector(".turn-indicator");
+let winner = document.querySelector(".winner");
+let btn = document.getElementById("restart-btn");
+
+let isClickable = true;
 let currentPlayer = "X";
 let arr = Array(9).fill(null);
-// console.log(arr);
+
+winner.classList.add("hidden");
 
 function checkWinner() {
   if (
@@ -47,23 +53,42 @@ function checkWinner() {
     (arr[0] !== null && arr[0] == arr[4] && arr[4] == arr[8]) ||
     (arr[2] !== null && arr[2] == arr[4] && arr[4] == arr[6])
   ) {
-    console.log(currentPlayer);
-    document.write(`${currentPlayer} win the game`);
+    isClickable = false;
+    turnIndicator.classList.add("hidden");
+    winner.classList.remove("hidden");
+    winner.textContent = `${currentPlayer}'s wins`;
     return;
   }
 
   if (!arr.some((e) => e === null)) {
-    document.write(`Match draw`);
-    return;
+    turnIndicator.classList.add("hidden");
+    winner.classList.remove("hidden");
+    winner.textContent = `Match Draw`;
   }
 }
 
 function handleClick(ele) {
-  let id = ele.id;
-  if (arr[id] !== null) return;
-  arr[id] = currentPlayer;
-  //   if (arr[id] !== null) return;
-  ele.innerText = currentPlayer;
-  checkWinner();
-  currentPlayer = currentPlayer == "X" ? "0" : "X";
+  if (isClickable) {
+    let id = ele.id;
+    if (arr[id] !== null) return;
+    arr[id] = currentPlayer;
+    //   if (arr[id] !== null) return;
+    ele.innerText = currentPlayer;
+    checkWinner();
+    currentPlayer = currentPlayer == "X" ? "0" : "X";
+    turnIndicator.textContent = `${currentPlayer}'s turn`;
+  }
 }
+
+btn.addEventListener("click", function () {
+  isClickable = true;
+  arr = Array(9).fill(null);
+  currentPlayer = "X";
+  const cells = document.querySelectorAll(".col");
+  cells.forEach((cell) => {
+    cell.innerText = "";
+  });
+  turnIndicator.classList.remove("hidden");
+  winner.classList.add("hidden");
+  turnIndicator.textContent = "X's turn";
+});
